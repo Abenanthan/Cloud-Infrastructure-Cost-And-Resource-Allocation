@@ -1,6 +1,6 @@
 /*
  * Author       : abenanthan.p.2024.cse_raj624
- * Generated on : 09-Oct-2026 08:53:51
+ * Generated on : 14-Oct-2026 08:08:24
  * Version      : 1.0
  */
  application "Cloud Infrastructure Management"
@@ -560,11 +560,336 @@
 				Execution_Time_Stamp as "Execution Time Stamp"
 			)
 		}
+		list Running_Resources_Count_Report
+		{
+			displayName = "Running Resources Count"
+			show all rows from Cloud_Resource_Registry  [Resource_Lifecycle_Status == "Running"]  
+			(
+				Resource_ID as "Resource ID"
+				Resource_Type as "Resource Type"
+				Instance_Size_Tier as "Instance Size Tier"
+				Hourly_Cost as "Hourly Cost"
+				Resource_Lifecycle_Status as "Resource Lifecycle Status"
+			)
+		}
+		list Idle_Resources_Report
+		{
+			displayName = "Idle Resources Report"
+			show all rows from Cloud_Resource_Registry  [Resource_Lifecycle_Status == "Idle"]  
+			(
+				Resource_ID as "Resource ID"
+				Project_Name as "Project Name"
+				Resource_Type as "Resource Type"
+				Instance_Size_Tier as "Instance Size Tier"
+				Hourly_Cost as "Hourly Cost"
+				Idle_CPU_Utilization as "Idle CPU Utilization"
+				Resource_Lifecycle_Status as "Resource Lifecycle Status"
+				custom action "Stop Idle Instance"
+				(
+	  			workflow = Stop_Idle_Instance
+				column header = "Stop Idle Instance"
+				success message = "Instance stopped successfully."
+				confirmation before execution
+				(
+					message for individual record = "Are you sure you want to stop this idle instance?"
+					confirm button text = "Confirm Stop"		
+					cancel button text = "Cancel"
+				)
+				)
+			)
+		}
+		list Active_Resources_Report
+		{
+			displayName = "Active Resources Report"
+			show all rows from Cloud_Resource_Registry  [Resource_Lifecycle_Status == "Running"]  
+			(
+				Resource_ID as "Resource ID"
+				Project_Name as "Project Name"
+				Resource_Type as "Resource Type"
+				Instance_Size_Tier as "Instance Size Tier"
+				Hourly_Cost as "Hourly Cost"
+				Idle_CPU_Utilization as "Idle CPU Utilization"
+				Resource_Lifecycle_Status as "Resource Lifecycle Status"
+			)
+		}
+	}
+	pages
+	{
+		page Cloud_Infrastructure_Executive_Dashboard
+		{
+			displayname = "Cloud Infrastructure Executive Dashboard"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Running_Resources_Count_.stat.outlined.comfortable'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = '#FFFFFF'\n\n    borderColor = '#F0F0F0'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '24px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '13px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Running Resources'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#1C1C1C'\n\tsize = '30px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'Resource_Lifecycle_Status == &quot;Running&quot;'\n\t  value = 'thisapp.Cloud_Resource_Registry.ID.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Total count of active resources'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#FF4C2F'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#FF4C2F'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Resource_Cleanup_Logs.Wasted_Dollars_Saved.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#333333'\n    borderWidth = '0px'\n\n\t  value = 'Total Cloud Waste Saved ($)'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#FF4C2F'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#FF4C2F'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Cloud_Projects.Allocated_Project_Budget.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#333333'\n    borderWidth = '0px'\n\n\t  value = 'Total Allocated Budget ($)'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<chart \n\telementName='Department-wise Budget Allocation'\n\n\ttype = 'Pie'\n\txtitle = 'Department'\n\tytitle = 'Allocated Project Budget'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme1'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Cloud_Projects'\n\txfield = 'Department.Department_Name'\n\tyfields = 'sum:Allocated_Project_Budget'\n/>\n\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<report \n\telementName='Report'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'Idle_Resources_Report'\n\t\n\t\tiszreport = 'false'\n\t\t\t\t\tzc_AddRec = 'false'\n\t\t\t\t\tzc_EditRec = 'false'\n\t\t\t\t\tzc_DelRec = 'false'\n\t\t\t\t\tzc_DuplRec = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<report \n\telementName='Report 1'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'All_Resource_Cleanup_Logs'\n\t\n\t\tiszreport = 'false'\n\t\t\t\t\tzc_AddRec = 'false'\n\t\t\t\t\tzc_EditRec = 'false'\n\t\t\t\t\tzc_DelRec = 'false'\n\t\t\t\t\tzc_DuplRec = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column>\n</row>\n</layout>\n</zml>"
+		}
 	}
 
 
+		 functions
+		 {
+			 Deluge
+			 {
+				 void Stop_Idle_Instance(int rec_id)
+                 {
+                 	// Fetch the target resource record using the passed record ID
+                 	resRecord = Cloud_Resource_Registry[ID == rec_id];
+                 	// Webhook testing URL (Generate a free endpoint at https://webhook.site)
+                 	apiUrl = "https://webhook.site/YOUR-UNIQUE-WEBHOOK-ID";
+                 	headers = Map();
+                 	headers.put("Content-Type","application/json");
+                 	// Construct JSON payload
+                 	payloadMap = Map();
+                 	payloadMap.put("resource_id",resRecord.Resource_ID);
+                 	payloadMap.put("action","STOP_INSTANCE");
+                 	payloadMap.put("requested_by",zoho.adminuser);
+                 	// Dispatch outbound REST API call
+                 	response = invokeurl
+                 	[
+                 		url :apiUrl
+                 		type :POST
+                 		parameters:payloadMap.toString()
+                 		headers:headers
+                 	];
+                 	// Update resource status in Registry
+                 	resRecord.Resource_Lifecycle_Status="Terminated";
+                 	// Insert entry into audit logs without commas
+                 	insert into Resource_Cleanup_Logs
+                 	[
+                 		Resource_Name=resRecord.ID
+                 		Project_Name=resRecord.Project_Name.Project_Name
+                 		Wasted_Dollars_Saved=resRecord.Hourly_Cost * 720
+                 		Action_Taken="Auto-Stopped Via API"
+                 		Execution_Time_Stamp=zoho.currenttime
+                 		Added_User=zoho.loginuser
+                 	]
+                 }
+			 }
+		 }
 
 
+		workflow
+		{
+		form
+		{
+			Dynamic_Hourly_Cost_Calcu as "Dynamic Hourly Cost Calculation"
+			{
+				type =  form
+				form = Cloud_Resource_Registry
+
+				record event = on add or edit
+
+				on user input of Instance_Size_Tier
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Map instance size tier to hourly pricing rate
+										if(input.Instance_Size_Tier == "t3.micro")
+										{
+											input.Hourly_Cost = 0.0104;
+										}
+										else if(input.Instance_Size_Tier == "t3.large")
+										{
+											input.Hourly_Cost = 0.0832;
+										}
+										else if(input.Instance_Size_Tier == "m5.2xlarge")
+										{
+											input.Hourly_Cost = 0.3840;
+										}
+										else if(input.Instance_Size_Tier == "db.r5.xlarge")
+										{
+											input.Hourly_Cost = 0.4800;
+										}
+						)
+					}
+				}
+
+			}
+			Dynamic_Requisition_Cost_ as "Dynamic Requisition Cost Calculation"
+			{
+				type =  form
+				form = Cloud_Resource_Requisition
+
+				record event = on add or edit
+
+				on user input of Requested_Instance_Tier
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											hourlyRate = 0.0;
+										if(input.Requested_Instance_Tier == "t3.micro")
+										{
+											hourlyRate = 0.0104;
+										}
+										else if(input.Requested_Instance_Tier == "t3.large")
+										{
+											hourlyRate = 0.0832;
+										}
+										else if(input.Requested_Instance_Tier == "m5.2xlarge")
+										{
+											hourlyRate = 0.3840;
+										}
+										// Compute projected monthly cost (Assuming 720 operating hours / month)
+										input.Estimated_Monthly_Cost = hourlyRate * 720;
+						)
+					}
+				}
+
+			}
+			Pre_Validation_Budget_Con as "Pre-Validation Budget Control"
+			{
+				type =  form
+				form = Cloud_Resource_Requisition
+
+				record event = on add or edit
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Retrieve parent project record details
+										projectRec = Cloud_Projects[ID == input.Project_Name];
+										if(projectRec != null)
+										{
+											// Check if the requested cost exceeds the project budget
+											if(input.Estimated_Monthly_Cost > projectRec.Allocated_Project_Budget)
+											{
+												alert "Budget Violation: Requested instance estimated cost ($" + input.Estimated_Monthly_Cost.round(2) + ") exceeds total project budget ($" + projectRec.Allocated_Project_Budget + ").";
+												cancel submit;
+											}
+										}
+						)
+					}
+				}
+
+			}
+			Auto_Provision_Resource_o as "Auto-Provision Resource on Approval"
+			{
+				type =  form
+				form = Cloud_Resource_Requisition
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Approval_Status == "Approved")
+										{
+											hRate = 0.0;
+											if(input.Requested_Instance_Tier == "t3.micro")
+											{
+												hRate = 0.0104;
+											}
+											else if(input.Requested_Instance_Tier == "t3.large")
+											{
+												hRate = 0.0832;
+											}
+											else if(input.Requested_Instance_Tier == "m5.2xlarge")
+											{
+												hRate = 0.3840;
+											}
+											resID = "i-auto-" + input.Requisition_ID;
+											insert into Cloud_Resource_Registry
+											[
+												Resource_ID=resID
+												Project_Name=input.Project_Name
+												Resource_Type="EC2 Compute Instance"
+												Instance_Size_Tier=input.Requested_Instance_Tier
+												Hourly_Cost=hRate
+												Idle_CPU_Utilization=100.0
+												Resource_Lifecycle_Status="Running"
+												Added_User=zoho.loginuser
+											]
+										}
+						)
+					}
+				}
+
+			}
+		}
+
+		schedule
+		{
+			Weekly_Idle_Resource_Swee as "Weekly Idle Resource Sweeper"
+			{
+				type =  schedule
+				start = "2026-10-16 20:00:00"
+				frequency = weekly
+				time zone = "Asia/Kolkata"
+				on start
+				{
+					actions 
+					{
+					on load
+					(
+						// Fetch all active resources with CPU utilization below 5%
+										idleAssets = Cloud_Resource_Registry[Idle_CPU_Utilization < 5.0 && Resource_Lifecycle_Status == "Running"];
+										for each  asset in idleAssets
+										{
+											// Calculate estimated waste saved (Assuming 120 idle hours logged)
+											wasteSaved = asset.Hourly_Cost * 120;
+											// Update asset lifecycle status
+											asset.Resource_Lifecycle_Status="Idle";
+											// Create an audit entry in Resource_Cleanup_Logs without commas
+											insert into Resource_Cleanup_Logs
+											[
+												Resource_Name=asset.ID
+												Project_Name=asset.Project_Name
+												Wasted_Dollars_Saved=wasteSaved
+												Action_Taken="Developer Notified"
+												Execution_Time_Stamp=zoho.currenttime
+												Added_User=zoho.loginuser
+											]
+										}
+					)
+					}
+				}
+			}
+		}
+
+
+
+
+		functions
+		{
+			Stop_Idle_Instance as "Stop Idle Instance"
+			{
+				type =  functions
+				form = Cloud_Resource_Registry
+				execution type = for each record	
+				on start
+				{
+					actions 
+					{
+					on click
+					(
+						// Fetch the selected record from Cloud_Resource_Registry
+										selectedRecord = Cloud_Resource_Registry[ID == input.ID];
+										// Check if the record exists and is in Idle status
+										if(selectedRecord != null && selectedRecord.Resource_Lifecycle_Status == "Idle")
+										{
+											// Call the custom function to stop the instance (void function)
+											thisapp.Stop_Idle_Instance(selectedRecord.ID);
+											// Update the record status to Terminated after successful stop
+											selectedRecord.Resource_Lifecycle_Status="Terminated";
+											info "Instance stopped successfully";
+										}
+										else
+										{
+											info "Selected record is not idle or does not exist";
+										}
+					)
+					}
+				}
+			}
+		}
+	}
 	share_settings
 	{
 			"Read"
@@ -1041,6 +1366,242 @@
 						)
 				)
 			}
+			report Running_Resources_Count_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Resource_ID as "Resource ID"
+								Resource_Type as "Resource Type"
+								Instance_Size_Tier as "Instance Size Tier"
+								Hourly_Cost as "Hourly Cost"
+								Resource_Lifecycle_Status as "Resource Lifecycle Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						running_resources_details
+						(
+		     				title = "Running Resources Details"
+							fields
+							(
+								Resource_ID as "Resource ID"
+								Resource_Type as "Resource Type"
+								Instance_Size_Tier as "Instance Size Tier"
+								Hourly_Cost as "Hourly Cost"
+								Resource_Lifecycle_Status as "Resource Lifecycle Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Idle_Resources_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Resource_ID as "Resource ID"
+								Resource_Type as "Resource Type"
+								Project_Name as "Project Name"
+								Instance_Size_Tier as "Instance Size Tier"
+								Idle_CPU_Utilization as "Idle CPU Utilization"
+								Hourly_Cost as "Hourly Cost"
+								Resource_Lifecycle_Status as "Resource Lifecycle Status"
+								"Stop Idle Instance"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							"Stop Idle Instance"
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Resource_ID as "Resource ID"
+								Project_Name as "Project Name"
+								Resource_Type as "Resource Type"
+								Instance_Size_Tier as "Instance Size Tier"
+								Hourly_Cost as "Hourly Cost"
+								Idle_CPU_Utilization as "Idle CPU Utilization"
+								Resource_Lifecycle_Status as "Resource Lifecycle Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Active_Resources_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Resource_ID as "Resource ID"
+								Project_Name as "Project Name"
+								Resource_Type as "Resource Type"
+								Instance_Size_Tier as "Instance Size Tier"
+								Hourly_Cost as "Hourly Cost"
+								Idle_CPU_Utilization as "Idle CPU Utilization"
+								Resource_Lifecycle_Status as "Resource Lifecycle Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Resource_ID as "Resource ID"
+								Project_Name as "Project Name"
+								Resource_Type as "Resource Type"
+								Instance_Size_Tier as "Instance Size Tier"
+								Hourly_Cost as "Hourly Cost"
+								Idle_CPU_Utilization as "Idle CPU Utilization"
+								Resource_Lifecycle_Status as "Resource Lifecycle Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
 		}
 		menu
 		{
@@ -1129,6 +1690,18 @@
 					{
 						icon = "tech-desktop"
 					}
+					report Running_Resources_Count_Report
+					{
+						icon = "sport-energy-supplement"
+					}
+					report Idle_Resources_Report
+					{
+						icon = "tech-2-l-search"
+					}
+					report Active_Resources_Report
+					{
+						icon = "tech-2-l-search"
+					}
 				}
 				section Cloud_Resource_Requisitions
 				{
@@ -1154,6 +1727,15 @@
 					report All_Resource_Cleanup_Logs
 					{
 						icon = "tech-desktop"
+					}
+				}
+				section Cloud_Infrastructure_Executive_Dashboard
+				{
+					displayname = "Cloud Infrastructure Executive Dashboard"
+					icon = "design-window-dev"
+					page Cloud_Infrastructure_Executive_Dashboard
+					{
+						icon = "design-window-dev"
 					}
 				}
 			}
