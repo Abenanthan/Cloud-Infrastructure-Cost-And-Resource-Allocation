@@ -1,6 +1,6 @@
 /*
- * Author       : abenanthan.p.2024.cse_raj624
- * Generated on : 14-Oct-2026 08:08:24
+ * Author       : abenanthan.p.2024.cse_raj209
+ * Generated on : 09-Nov-2026 22:11:57
  * Version      : 1.0
  */
  application "Cloud Infrastructure Management"
@@ -22,7 +22,7 @@
 	 			column = 0   
 				width = medium
 			)
-			Project_Name
+			must have Project_Name
 			(
     			type = text
 				displayname = "Project Name"
@@ -30,7 +30,7 @@
 	 			column = 1   
 				width = medium
 			)
-			Department
+			must have Department
 			(
 				type = picklist	
 				values  = Departments.ID
@@ -58,7 +58,7 @@
 				width = medium
 				personal data = true
 			)
-			Cloud_Provider
+			must have Cloud_Provider
 			(
 				type = picklist
 				displayname = "Cloud Provider"
@@ -68,7 +68,7 @@
 	 			column = 1   
 				width = medium
 			)
-			Allocated_Project_Budget
+			must have Allocated_Project_Budget
 			(
 				type = decimal
 				displayname = "Allocated Project Budget"
@@ -76,7 +76,7 @@
 	 			column = 1   
 				width = medium
 			)
-			Project_Status
+			must have Project_Status
 			(
 				type = picklist
 				displayname = "Project Status"
@@ -123,7 +123,7 @@
 	 			column = 0   
 				width = medium
 			)
-			Resource_ID
+			must have unique Resource_ID
 			(
     			type = text
 				displayname = "Resource ID"
@@ -131,7 +131,7 @@
 	 			column = 1   
 				width = medium
 			)
-			Project_Name
+			must have Project_Name
 			(
 				type = picklist	
 				displayname = "Project Name"
@@ -142,7 +142,7 @@
 	 			column = 1   
 				width = medium
 			)
-			Resource_Type
+			must have Resource_Type
 			(
 				type = picklist
 				displayname = "Resource Type"
@@ -153,12 +153,12 @@
 	 			column = 1   
 				width = medium
 			)
-			Instance_Size_Tier
+			must have Instance_Size_Tier
 			(
 				type = picklist
-				displayname = "Instance Size Tier"
+				displayname = "Instance Size Tier / Resource Configuration"
 				maxchar = 100
-				values = {"t3.micro","t3.large","m5.2xlarge","db.r5.xlarge"}
+				values = {"t3.micro","t3.large","m5.2xlarge","db.r5.xlarge","db.r5.large","S3 Standard – 50 GB","S3 Standard – 100 GB","S3 Standard – 500 GB","EKS – Small","EKS – Medium","EKS – Large"}
 				sortorder = ascending
 	 			row = 1
 	 			column = 1   
@@ -168,6 +168,7 @@
 			(
 				type = decimal
 				displayname = "Hourly Cost"
+				decimalplace = 4
 	 			row = 1
 	 			column = 1   
 				width = medium
@@ -175,7 +176,7 @@
 			Idle_CPU_Utilization
 			(
 				type = decimal
-				displayname = "Idle CPU Utilization"
+				displayname = "CPU Utilization"
 	 			row = 1
 	 			column = 1   
 				width = medium
@@ -186,6 +187,7 @@
 				displayname = "Resource Lifecycle Status"
 				maxchar = 100
 				values = {"Running","Idle","Terminated"}
+				initial value = "Running"
 	 			row = 1
 	 			column = 1   
 				width = medium
@@ -236,7 +238,7 @@
 	 			column = 1   
 				width = medium
 			)
-			Project_Name
+			must have Project_Name
 			(
 				type = picklist	
 				displayname = "Project Name"
@@ -247,7 +249,7 @@
 	 			column = 1   
 				width = medium
 			)
-			Name_Of_Requested_Person
+			must have Name_Of_Requested_Person
 			(
     			type = text
 				displayname = "Name Of Requested Person "
@@ -255,7 +257,7 @@
 	 			column = 1   
 				width = medium
 			)
-			E_mail
+			must have E_mail
 			(
     			type = email
 				displayname = "E-mail"
@@ -265,7 +267,7 @@
 				width = medium
 				personal data = true
 			)
-			Requested_Instance_Tier
+			must have Requested_Instance_Tier
 			(
 				type = picklist
 				displayname = "Requested Instance Tier"
@@ -287,6 +289,7 @@
 			(
 				type = decimal
 				displayname = "Estimated Monthly Cost"
+				decimalplace = 4
 	 			row = 1
 	 			column = 1   
 				width = medium
@@ -297,6 +300,7 @@
 				displayname = "Approval Status"
 				maxchar = 100
 				values = {"Approved","Pending","Rejected"}
+				initial value = "Pending"
 	 			row = 1
 	 			column = 1   
 				width = medium
@@ -337,7 +341,7 @@
 	 			column = 0   
 				width = medium
 			)
-			Department_Name
+			must have Department_Name
 			(
     			type = text
 				displayname = "Department Name"
@@ -363,11 +367,40 @@
 				width = medium
 				personal data = true
 			)
-			Overall_Quarterly_Budget
+			must have Overall_Quarterly_Budget
 			(
 				type = decimal
 				displayname = "Overall Quarterly Budget "
 	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Department_Contact_Details
+			(
+				type = grid
+				displayname = "Department Contact Details"
+				Employee_Name
+				(
+    				type = text
+					displayname = "Employee Name"
+					width = medium
+				)
+				Employee_Email
+				(
+    				type = email
+					displayname = "Employee Email"
+					maxchar = 80
+					width = medium
+					personal data = true
+				)
+				Employee_Phone_Number
+				(
+    				type = phonenumber
+					displayname = "Employee Phone Number"
+					width = medium
+					personal data = true
+				)
+	 			row = 2
 	 			column = 1   
 				width = medium
 			)
@@ -502,6 +535,7 @@
 				Department_Head as "Department Head"
 				E_mail as "E-mail"
 				Overall_Quarterly_Budget as "Overall Quarterly Budget "
+				Department_Contact_Details.Employee_Name as "Department Contact Details"
 			)
 		}
 		default list All_Cloud_Projects
@@ -526,10 +560,18 @@
 				Resource_ID as "Resource ID"
 				Project_Name as "Project Name"
 				Resource_Type as "Resource Type"
-				Instance_Size_Tier as "Instance Size Tier"
+				Instance_Size_Tier as "Instance Size Tier / Resource Configuration"
 				Hourly_Cost as "Hourly Cost"
-				Idle_CPU_Utilization as "Idle CPU Utilization"
+				Idle_CPU_Utilization as "CPU Utilization"
 				Resource_Lifecycle_Status as "Resource Lifecycle Status"
+			)
+			custom actions
+			(
+				"Test Stop Function"
+				(
+	  			workflow = Test_Stop_Function
+				show action in edit record menu = true
+				)
 			)
 		}
 		default list All_Cloud_Resource_Requisitions
@@ -567,7 +609,7 @@
 			(
 				Resource_ID as "Resource ID"
 				Resource_Type as "Resource Type"
-				Instance_Size_Tier as "Instance Size Tier"
+				Instance_Size_Tier as "Instance Size Tier / Resource Configuration"
 				Hourly_Cost as "Hourly Cost"
 				Resource_Lifecycle_Status as "Resource Lifecycle Status"
 			)
@@ -580,9 +622,9 @@
 				Resource_ID as "Resource ID"
 				Project_Name as "Project Name"
 				Resource_Type as "Resource Type"
-				Instance_Size_Tier as "Instance Size Tier"
+				Instance_Size_Tier as "Instance Size Tier / Resource Configuration"
 				Hourly_Cost as "Hourly Cost"
-				Idle_CPU_Utilization as "Idle CPU Utilization"
+				Idle_CPU_Utilization as "CPU Utilization"
 				Resource_Lifecycle_Status as "Resource Lifecycle Status"
 				custom action "Stop Idle Instance"
 				(
@@ -606,9 +648,9 @@
 				Resource_ID as "Resource ID"
 				Project_Name as "Project Name"
 				Resource_Type as "Resource Type"
-				Instance_Size_Tier as "Instance Size Tier"
+				Instance_Size_Tier as "Instance Size Tier / Resource Configuration"
 				Hourly_Cost as "Hourly Cost"
-				Idle_CPU_Utilization as "Idle CPU Utilization"
+				Idle_CPU_Utilization as "CPU Utilization"
 				Resource_Lifecycle_Status as "Resource Lifecycle Status"
 			)
 		}
@@ -629,37 +671,42 @@
 			 {
 				 void Stop_Idle_Instance(int rec_id)
                  {
-                 	// Fetch the target resource record using the passed record ID
                  	resRecord = Cloud_Resource_Registry[ID == rec_id];
-                 	// Webhook testing URL (Generate a free endpoint at https://webhook.site)
-                 	apiUrl = "https://webhook.site/YOUR-UNIQUE-WEBHOOK-ID";
-                 	headers = Map();
-                 	headers.put("Content-Type","application/json");
-                 	// Construct JSON payload
-                 	payloadMap = Map();
-                 	payloadMap.put("resource_id",resRecord.Resource_ID);
-                 	payloadMap.put("action","STOP_INSTANCE");
-                 	payloadMap.put("requested_by",zoho.adminuser);
-                 	// Dispatch outbound REST API call
-                 	response = invokeurl
-                 	[
-                 		url :apiUrl
-                 		type :POST
-                 		parameters:payloadMap.toString()
-                 		headers:headers
-                 	];
-                 	// Update resource status in Registry
-                 	resRecord.Resource_Lifecycle_Status="Terminated";
-                 	// Insert entry into audit logs without commas
-                 	insert into Resource_Cleanup_Logs
-                 	[
-                 		Resource_Name=resRecord.ID
-                 		Project_Name=resRecord.Project_Name.Project_Name
-                 		Wasted_Dollars_Saved=resRecord.Hourly_Cost * 720
-                 		Action_Taken="Auto-Stopped Via API"
-                 		Execution_Time_Stamp=zoho.currenttime
-                 		Added_User=zoho.loginuser
-                 	]
+                 	if(resRecord.ID != null)
+                 	{
+                 		if(resRecord.Resource_Lifecycle_Status == "Idle" && resRecord.Resource_Type != "S3 Storage Bucket")
+                 		{
+                 			// Update resource status
+                 			resRecord.Resource_Lifecycle_Status="Terminated";
+                 			// Send email notification
+                 			sendmail
+                 			[
+                 				from :zoho.adminuserid
+                 				to :"abenanthan.p.2024.cse@rajalakshmi.edu.in"
+                 				subject :"Cloud Resource Terminated"
+                 				message :"Resource ID: " + resRecord.Resource_ID + "<br>Project: " + resRecord.Project_Name.Project_Name + "<br>Status: Terminated"
+                 			]
+                 			// Create cleanup log
+                 			insert into Resource_Cleanup_Logs
+                 			[
+                 				Resource_Name=resRecord.ID
+                 				Project_Name=resRecord.Project_Name.Project_Name
+                 				Wasted_Dollars_Saved=resRecord.Hourly_Cost * 720
+                 				Action_Taken="Auto-Stopped"
+                 				Execution_Time_Stamp=zoho.currenttime
+                 				Added_User=zoho.loginuser
+                 			]
+                 			info "Resource terminated successfully.";
+                 		}
+                 		else
+                 		{
+                 			info "Resource is not eligible for this action.";
+                 		}
+                 	}
+                 	else
+                 	{
+                 		info "Resource not found.";
+                 	}
                  }
 			 }
 		 }
@@ -682,22 +729,66 @@
 					{
 						custom deluge script
 						(
-											// Map instance size tier to hourly pricing rate
-										if(input.Instance_Size_Tier == "t3.micro")
+											// DS-01: Calculate estimated hourly cost based on resource type and configuration
+										// EC2 Compute Instance
+										if(input.Resource_Type == "EC2 Compute Instance")
 										{
-											input.Hourly_Cost = 0.0104;
+											if(input.Instance_Size_Tier == "t3.micro")
+											{
+												input.Hourly_Cost = 0.0104;
+											}
+											else if(input.Instance_Size_Tier == "t3.large")
+											{
+												input.Hourly_Cost = 0.0832;
+											}
+											else if(input.Instance_Size_Tier == "m5.2xlarge")
+											{
+												input.Hourly_Cost = 0.3840;
+											}
 										}
-										else if(input.Instance_Size_Tier == "t3.large")
+										// RDS Database
+										else if(input.Resource_Type == "RDS Database")
 										{
-											input.Hourly_Cost = 0.0832;
+											if(input.Instance_Size_Tier == "db.r5.large")
+											{
+												input.Hourly_Cost = 0.2400;
+											}
+											else if(input.Instance_Size_Tier == "db.r5.xlarge")
+											{
+												input.Hourly_Cost = 0.4800;
+											}
 										}
-										else if(input.Instance_Size_Tier == "m5.2xlarge")
+										// S3 Storage Bucket
+										else if(input.Resource_Type == "S3 Storage Bucket")
 										{
-											input.Hourly_Cost = 0.3840;
+											if(input.Instance_Size_Tier == "S3 Standard - 50 GB")
+											{
+												input.Hourly_Cost = 0.0016;
+											}
+											else if(input.Instance_Size_Tier == "S3 Standard - 100 GB")
+											{
+												input.Hourly_Cost = 0.0032;
+											}
+											else if(input.Instance_Size_Tier == "S3 Standard - 500 GB")
+											{
+												input.Hourly_Cost = 0.0160;
+											}
 										}
-										else if(input.Instance_Size_Tier == "db.r5.xlarge")
+										// Kubernetes Cluster
+										else if(input.Resource_Type == "Kubernetes Cluster")
 										{
-											input.Hourly_Cost = 0.4800;
+											if(input.Instance_Size_Tier == "EKS - Small")
+											{
+												input.Hourly_Cost = 0.1832;
+											}
+											else if(input.Instance_Size_Tier == "EKS - Medium")
+											{
+												input.Hourly_Cost = 0.2664;
+											}
+											else if(input.Instance_Size_Tier == "EKS - Large")
+											{
+												input.Hourly_Cost = 0.8680;
+											}
 										}
 						)
 					}
@@ -754,12 +845,23 @@
 										projectRec = Cloud_Projects[ID == input.Project_Name];
 										if(projectRec != null)
 										{
-											// Check if the requested cost exceeds the project budget
-											if(input.Estimated_Monthly_Cost > projectRec.Allocated_Project_Budget)
+											// Check whether the selected project is Active
+											if(projectRec.Project_Status != "Active")
+											{
+												alert "Project is Frozen / Overbudget. Resource requisitions cannot be submitted.";
+												cancel submit;
+											}
+											// Check if requested cost exceeds project budget
+											else if(input.Estimated_Monthly_Cost > projectRec.Allocated_Project_Budget)
 											{
 												alert "Budget Violation: Requested instance estimated cost ($" + input.Estimated_Monthly_Cost.round(2) + ") exceeds total project budget ($" + projectRec.Allocated_Project_Budget + ").";
 												cancel submit;
 											}
+										}
+										else
+										{
+											alert "Selected project could not be found.";
+											cancel submit;
 										}
 						)
 					}
@@ -772,6 +874,7 @@
 				form = Cloud_Resource_Requisition
 
 				record event = on add or edit
+					status = inactive
 
 				on success
 				{
@@ -812,6 +915,115 @@
 				}
 
 			}
+			Email_When_Stopped as "Email_When_Stopped"
+			{
+				type =  form
+				form = Cloud_Resource_Registry
+
+				record event = on edit
+
+				on success
+				{
+					actions  (Resource_Lifecycle_Status == "Terminated")
+					{
+						sendmail
+						(
+							from : "zoho.adminuserid"
+							to : "zoho.adminuserid","zoho.loginuserid","abenanthan.p.2024.cse@rajalakshmi.edu.in"
+							subject : "Idle Cloud Instance Stopped - Resource Cleanup Alert"
+							message : "<div>${zoho.loginuserid} has updated a record in form Cloud Resource Registry<br></div><div><br></div><p><span>Hello,</span><br></p><p><span>An idle cloud resource has been marked as Terminated in the Cloud Infrastructure Management System.</span><br></p><p><b><span>Resource Details</span></b><br></p><ul><li><p style=\"margin-top: 0px;\"><span>Resource ID: [Insert Resource_ID]</span><br></p></li><li><p style=\"margin-top: 0px;\"><span>Project Name: [Insert Project_Name]</span><br></p></li><li><p style=\"margin-top: 0px;\"><span>Resource Type: [Insert Resource_Type]</span><br></p></li><li><p style=\"margin-top: 0px;\"><span>Instance Tier: [Insert Instance_Size_Tier]</span><br></p></li><li><p style=\"margin-top: 0px;\"><span>Hourly Cost: [Insert Hourly_Cost]</span><br></p></li><li><p style=\"margin-top: 0px;\"><span>Current Status: [Insert Resource_Lifecycle_Status]</span><br></p></li></ul><p><span>Please review the resource cleanup logs for further details.</span><br></p><p><br></p><div><span>Regards,</span><br></div><div><span>Cloud Infrastructure Management System</span><br></div><p><br></p><div><br></div>"
+						)
+					}
+				}
+
+			}
+			Validate_Project_Budget_u as "Validate Project Budget using Department budget"
+			{
+				type =  form
+				form = Cloud_Projects
+
+				record event = on add or edit
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Get the selected department
+										deptRecord = Departments[ID == input.Department];
+										// Calculate existing project allocations
+										totalAllocated = 0;
+										for each  project in Cloud_Projects
+										{
+											if(project.Department == input.Department)
+											{
+												totalAllocated = totalAllocated + project.Allocated_Project_Budget;
+											}
+										}
+										// Calculate remaining department budget
+										remainingBudget = deptRecord.Overall_Quarterly_Budget - totalAllocated;
+										// Validate the new project budget
+										if(input.Allocated_Project_Budget > remainingBudget)
+										{
+											alert "Project budget exceeds the department's remaining quarterly budget. Remaining Budget available for the department is " + remainingBudget;
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+			Update_Resource_Configura as "Update Resource Configuration Choices"
+			{
+				type =  form
+				form = Cloud_Resource_Registry
+
+				record event = on add or edit
+
+				on user input of Resource_Type
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Hourly_Cost = null;
+										if(input.Resource_Type == "EC2 Compute Instance")
+										{
+											options = List();
+											options.add("t3.micro");
+											options.add("t3.large");
+											options.add("m5.2xlarge");
+											input.Instance_Size_Tier:ui.add(options);
+										}
+										else if(input.Resource_Type == "RDS Database")
+										{
+											options = List();
+											options.add("db.r5.large");
+											options.add("db.r5.xlarge");
+											input.Instance_Size_Tier:ui.add(options);
+										}
+										else if(input.Resource_Type == "S3 Storage Bucket")
+										{
+											options = List();
+											options.add("S3 Standard - 50 GB");
+											options.add("S3 Standard - 100 GB");
+											options.add("S3 Standard - 500 GB");
+											input.Instance_Size_Tier:ui.add(options);
+										}
+										else if(input.Resource_Type == "Kubernetes Cluster")
+										{
+											options = List();
+											options.add("EKS - Small");
+											options.add("EKS - Medium");
+											options.add("EKS - Large");
+											input.Instance_Size_Tier:ui.add(options);
+										}
+						)
+					}
+				}
+
+			}
 		}
 
 		schedule
@@ -819,6 +1031,7 @@
 			Weekly_Idle_Resource_Swee as "Weekly Idle Resource Sweeper"
 			{
 				type =  schedule
+					status = inactive
 				start = "2026-10-16 20:00:00"
 				frequency = weekly
 				time zone = "Asia/Kolkata"
@@ -829,7 +1042,7 @@
 					on load
 					(
 						// Fetch all active resources with CPU utilization below 5%
-										idleAssets = Cloud_Resource_Registry[Idle_CPU_Utilization < 5.0 && Resource_Lifecycle_Status == "Running"];
+										idleAssets = Cloud_Resource_Registry[Idle_CPU_Utilization < 5.0 && Resource_Lifecycle_Status == "Running" && Resource_Type != "S3 Storage Bucket"];
 										for each  asset in idleAssets
 										{
 											// Calculate estimated waste saved (Assuming 120 idle hours logged)
@@ -840,7 +1053,7 @@
 											insert into Resource_Cleanup_Logs
 											[
 												Resource_Name=asset.ID
-												Project_Name=asset.Project_Name
+												Project_Name=asset.Project_Name.Project_Name
 												Wasted_Dollars_Saved=wasteSaved
 												Action_Taken="Developer Notified"
 												Execution_Time_Stamp=zoho.currenttime
@@ -853,6 +1066,110 @@
 			}
 		}
 
+		approval
+		{
+			Resource_Requisition_Appr as "Resource Requisition Approval"
+			{
+				type =  approval
+				form = Cloud_Resource_Requisition
+				display fields = [Requisition_ID,Project_Name,Name_Of_Requested_Person,E_mail,Requested_Instance_Tier,Justification,Estimated_Monthly_Cost]
+				on start
+				{
+				}
+				on level 1
+				{
+					approvers
+					(
+			 			role = "Manager"
+					)
+					on approve 
+					{
+						actions 
+						{
+							sendmail
+							(
+								from : zoho.loginuserid
+								to : approver.submitter
+								subject : "Approval Request"
+								message : "Your request has been approved."
+							)
+						}
+						actions 
+						{
+						update Cloud_Resource_Requisition[ID == input.ID]
+						[
+							Approval_Status = "Approved"
+						]
+						}
+						actions 
+						{
+						on load
+						(
+							// DS-04: Register resource after Manager approval
+												hRate = 0.0;
+												// Calculate hourly cost
+												if(input.Requested_Instance_Tier == "t3.micro")
+												{
+													hRate = 0.0104;
+												}
+												else if(input.Requested_Instance_Tier == "t3.large")
+												{
+													hRate = 0.0832;
+												}
+												else if(input.Requested_Instance_Tier == "m5.2xlarge")
+												{
+													hRate = 0.3840;
+												}
+												// Generate resource ID from requisition ID
+												resID = "i-auto-" + input.Requisition_ID.toString();
+												// Check for an existing resource
+												existingResource = Cloud_Resource_Registry[Resource_ID == resID];
+												if(existingResource.ID == null)
+												{
+													insert into Cloud_Resource_Registry
+													[
+														Resource_ID=resID
+														Project_Name=input.Project_Name
+														Resource_Type="EC2 Compute Instance"
+														Instance_Size_Tier=input.Requested_Instance_Tier
+														Hourly_Cost=hRate
+														Idle_CPU_Utilization=100.0
+														Resource_Lifecycle_Status="Running"
+														Added_User=zoho.loginuser
+													]
+													info "Resource registered successfully.";
+												}
+												else
+												{
+													info "Resource is already registered.";
+												}
+						)
+						}
+					}
+					on reject
+					{
+
+						actions 
+						{
+							sendmail
+							(
+								from : zoho.loginuserid
+								to : approver.submitter
+								subject : "Approval Request"
+								message : "Your request has been rejected."
+							)
+						}
+						actions 
+						{
+						update Cloud_Resource_Requisition[ID == input.ID]
+						[
+							Approval_Status = "Rejected"
+						]
+						}
+					}
+				}
+			}
+		}
 
 
 
@@ -869,20 +1186,35 @@
 					{
 					on click
 					(
-						// Fetch the selected record from Cloud_Resource_Registry
-										selectedRecord = Cloud_Resource_Registry[ID == input.ID];
-										// Check if the record exists and is in Idle status
+						selectedRecord = Cloud_Resource_Registry[ID == input.ID];
 										if(selectedRecord != null && selectedRecord.Resource_Lifecycle_Status == "Idle")
 										{
-											// Call the custom function to stop the instance (void function)
 											thisapp.Stop_Idle_Instance(selectedRecord.ID);
-											// Update the record status to Terminated after successful stop
-											selectedRecord.Resource_Lifecycle_Status="Terminated";
-											info "Instance stopped successfully";
+											info "Resource termination processed successfully.";
 										}
 										else
 										{
-											info "Selected record is not idle or does not exist";
+											info "Selected resource is not Idle or does not exist.";
+										}
+					)
+					}
+				}
+			}
+			Test_Stop_Function as "Test Stop Function"
+			{
+				type =  functions
+				form = Cloud_Resource_Registry
+				execution type = for each record	
+				on start
+				{
+					actions 
+					{
+					on click
+					(
+						selectedRecord = Cloud_Resource_Registry[ID == input.ID];
+										if(selectedRecord.ID != null)
+										{
+											thisapp.Stop_Idle_Instance(selectedRecord.ID);
 										}
 					)
 					}
@@ -906,13 +1238,6 @@
 				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
 				description = "This profile will have write permission for all components\n"
 			}
-			"Developer"
-			{
-				name = "Developer"
-				type = Developer
-				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
-				description = "Developer Profile\n"
-			}
 			"Administrator"
 			{
 				name = "Administrator"
@@ -920,11 +1245,111 @@
 				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
 				description = "This profile will have all the permissions.\n"
 			}
+			"Developer_Requester"
+			{
+				name = "Developer_Requester"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Allows developers to submit cloud resource requisitions and view their own request records.\n"
+				ModulePermissions
+				{
+					Cloud_Resource_Requisition
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+					}
+					Cloud_Resource_Registry
+					{
+						allFieldsVisible= true 
+					}
+					Departments
+					{
+						allFieldsVisible= true 
+					}
+					Cloud_Projects
+					{
+						allFieldsVisible= true 
+					}
+					Resource_Cleanup_Logs
+					{
+						allFieldsVisible= true 
+					}
+				}
+			}
+			"Manager_Approval"
+			{
+				name = "Manager_Approval"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Allows managers to access and review cloud resource requisitions and process approval requests\n"
+				ModulePermissions
+				{
+					Cloud_Resource_Requisition
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Cloud_Resource_Requisitions={"View","Edit"}
+						}
+					}
+					Cloud_Resource_Registry
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Idle_Resources_Report={"View","Edit"}
+							Running_Resources_Count_Report={"View","Edit"}
+							Active_Resources_Report={"View","Edit"}
+							All_Cloud_Resource_Registries={"View","Edit"}
+						}
+					}
+					Departments
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Departments={"View","Edit"}
+						}
+					}
+					Cloud_Projects
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Cloud_Projects={"View","Edit"}
+						}
+					}
+					Resource_Cleanup_Logs
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Resource_Cleanup_Logs={"View","Edit"}
+						}
+					}
+					Cloud_Infrastructure_Executive_Dashboard
+					{
+						enabled = tab
+					}
+				}
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
 			"Customer"
 			{
 				name = "Customer"
 				type = Customer_Portal
-				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
 				description = "This is the default profile having only add and view permission.\n"
 			}
 			roles
@@ -932,15 +1357,24 @@
 				"CEO"
 				{
 					description = "User belonging to this role can access data of all other users."
+					"Manager"
+					{
+						description = "Reviews and approves cloud resource requisitions"
+						"Developer"
+						{
+							description = "Developer who manages cloud instances"
+						}
+					}
 				}
 			}
+			role Hierarchy = {Cloud_Projects,Cloud_Resource_Registry,Cloud_Resource_Requisition,Departments,Resource_Cleanup_Logs}
 	}
 
 	customize
 	{
 		icon
 		{
-			text = "CIM"
+			text = "CLO"
 			background color = "theme"
 			foreground color = "#ffffff"
 		}
@@ -987,6 +1421,7 @@
 								Department_Head as "Department Head"
 								E_mail as "E-mail"
 								Overall_Quarterly_Budget as "Overall Quarterly Budget "
+								Department_Contact_Details.Employee_Name as "Department Contact Details"
 							)
 						)
 					)
@@ -1033,6 +1468,7 @@
 								Department_Head as "Department Head"
 								E_mail as "E-mail"
 								Overall_Quarterly_Budget as "Overall Quarterly Budget "
+								Department_Contact_Details.Employee_Name as "Department Contact Details"
 							)
 						)
 					)
@@ -1140,9 +1576,9 @@
 								Resource_ID as "Resource ID"
 								Project_Name as "Project Name"
 								Resource_Type as "Resource Type"
-								Instance_Size_Tier as "Instance Size Tier"
+								Instance_Size_Tier as "Instance Size Tier / Resource Configuration"
 								Hourly_Cost as "Hourly Cost"
-								Idle_CPU_Utilization as "Idle CPU Utilization"
+								Idle_CPU_Utilization as "CPU Utilization"
 								Resource_Lifecycle_Status as "Resource Lifecycle Status"
 							)
 						)
@@ -1160,6 +1596,7 @@
 							Edit   	   
 							Duplicate   	   
 							Delete   	   
+							"Test Stop Function"
     					)
 						)
     				action
@@ -1189,9 +1626,9 @@
 								Resource_ID as "Resource ID"
 								Project_Name as "Project Name"
 								Resource_Type as "Resource Type"
-								Instance_Size_Tier as "Instance Size Tier"
+								Instance_Size_Tier as "Instance Size Tier / Resource Configuration"
 								Hourly_Cost as "Hourly Cost"
-								Idle_CPU_Utilization as "Idle CPU Utilization"
+								Idle_CPU_Utilization as "CPU Utilization"
 								Resource_Lifecycle_Status as "Resource Lifecycle Status"
 							)
 						)
@@ -1378,7 +1815,7 @@
 							(
 								Resource_ID as "Resource ID"
 								Resource_Type as "Resource Type"
-								Instance_Size_Tier as "Instance Size Tier"
+								Instance_Size_Tier as "Instance Size Tier / Resource Configuration"
 								Hourly_Cost as "Hourly Cost"
 								Resource_Lifecycle_Status as "Resource Lifecycle Status"
 							)
@@ -1426,7 +1863,7 @@
 							(
 								Resource_ID as "Resource ID"
 								Resource_Type as "Resource Type"
-								Instance_Size_Tier as "Instance Size Tier"
+								Instance_Size_Tier as "Instance Size Tier / Resource Configuration"
 								Hourly_Cost as "Hourly Cost"
 								Resource_Lifecycle_Status as "Resource Lifecycle Status"
 							)
@@ -1456,8 +1893,8 @@
 								Resource_ID as "Resource ID"
 								Resource_Type as "Resource Type"
 								Project_Name as "Project Name"
-								Instance_Size_Tier as "Instance Size Tier"
-								Idle_CPU_Utilization as "Idle CPU Utilization"
+								Instance_Size_Tier as "Instance Size Tier / Resource Configuration"
+								Idle_CPU_Utilization as "CPU Utilization"
 								Hourly_Cost as "Hourly Cost"
 								Resource_Lifecycle_Status as "Resource Lifecycle Status"
 								"Stop Idle Instance"
@@ -1504,9 +1941,9 @@
 								Resource_ID as "Resource ID"
 								Project_Name as "Project Name"
 								Resource_Type as "Resource Type"
-								Instance_Size_Tier as "Instance Size Tier"
+								Instance_Size_Tier as "Instance Size Tier / Resource Configuration"
 								Hourly_Cost as "Hourly Cost"
-								Idle_CPU_Utilization as "Idle CPU Utilization"
+								Idle_CPU_Utilization as "CPU Utilization"
 								Resource_Lifecycle_Status as "Resource Lifecycle Status"
 							)
 						)
@@ -1535,9 +1972,9 @@
 								Resource_ID as "Resource ID"
 								Project_Name as "Project Name"
 								Resource_Type as "Resource Type"
-								Instance_Size_Tier as "Instance Size Tier"
+								Instance_Size_Tier as "Instance Size Tier / Resource Configuration"
 								Hourly_Cost as "Hourly Cost"
-								Idle_CPU_Utilization as "Idle CPU Utilization"
+								Idle_CPU_Utilization as "CPU Utilization"
 								Resource_Lifecycle_Status as "Resource Lifecycle Status"
 							)
 						)
@@ -1584,9 +2021,9 @@
 								Resource_ID as "Resource ID"
 								Project_Name as "Project Name"
 								Resource_Type as "Resource Type"
-								Instance_Size_Tier as "Instance Size Tier"
+								Instance_Size_Tier as "Instance Size Tier / Resource Configuration"
 								Hourly_Cost as "Hourly Cost"
-								Idle_CPU_Utilization as "Idle CPU Utilization"
+								Idle_CPU_Utilization as "CPU Utilization"
 								Resource_Lifecycle_Status as "Resource Lifecycle Status"
 							)
 						)
