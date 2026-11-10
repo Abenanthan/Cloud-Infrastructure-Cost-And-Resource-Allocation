@@ -1,6 +1,6 @@
 /*
  * Author       : abenanthan.p.2024.cse_raj209
- * Generated on : 09-Nov-2026 22:11:57
+ * Generated on : 10-Nov-2026 15:35:01
  * Version      : 1.0
  */
  application "Cloud Infrastructure Management"
@@ -382,13 +382,13 @@
 				Employee_Name
 				(
     				type = text
-					displayname = "Employee Name"
+					displayname = "Contact Person"
 					width = medium
 				)
 				Employee_Email
 				(
     				type = email
-					displayname = "Employee Email"
+					displayname = "Contact Person Email"
 					maxchar = 80
 					width = medium
 					personal data = true
@@ -396,7 +396,7 @@
 				Employee_Phone_Number
 				(
     				type = phonenumber
-					displayname = "Employee Phone Number"
+					displayname = "Contact Person Phone Number"
 					width = medium
 					personal data = true
 				)
@@ -660,7 +660,12 @@
 		page Cloud_Infrastructure_Executive_Dashboard
 		{
 			displayname = "Cloud Infrastructure Executive Dashboard"
-			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Running_Resources_Count_.stat.outlined.comfortable'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = '#FFFFFF'\n\n    borderColor = '#F0F0F0'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '24px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '13px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Running Resources'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#1C1C1C'\n\tsize = '30px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'Resource_Lifecycle_Status == &quot;Running&quot;'\n\t  value = 'thisapp.Cloud_Resource_Registry.ID.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Total count of active resources'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#FF4C2F'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#FF4C2F'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Resource_Cleanup_Logs.Wasted_Dollars_Saved.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#333333'\n    borderWidth = '0px'\n\n\t  value = 'Total Cloud Waste Saved ($)'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#FF4C2F'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#FF4C2F'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Cloud_Projects.Allocated_Project_Budget.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#333333'\n    borderWidth = '0px'\n\n\t  value = 'Total Allocated Budget ($)'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<chart \n\telementName='Department-wise Budget Allocation'\n\n\ttype = 'Pie'\n\txtitle = 'Department'\n\tytitle = 'Allocated Project Budget'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme1'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Cloud_Projects'\n\txfield = 'Department.Department_Name'\n\tyfields = 'sum:Allocated_Project_Budget'\n/>\n\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<report \n\telementName='Report'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'Idle_Resources_Report'\n\t\n\t\tiszreport = 'false'\n\t\t\t\t\tzc_AddRec = 'false'\n\t\t\t\t\tzc_EditRec = 'false'\n\t\t\t\t\tzc_DelRec = 'false'\n\t\t\t\t\tzc_DuplRec = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<report \n\telementName='Report 1'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'All_Resource_Cleanup_Logs'\n\t\n\t\tiszreport = 'false'\n\t\t\t\t\tzc_AddRec = 'false'\n\t\t\t\t\tzc_EditRec = 'false'\n\t\t\t\t\tzc_DelRec = 'false'\n\t\t\t\t\tzc_DuplRec = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column>\n</row>\n</layout>\n</zml>"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Running_Resources_Count_.stat.outlined.comfortable'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = '#FFFFFF'\n\n    borderColor = '#F0F0F0'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '24px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '13px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Running Resources'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#1C1C1C'\n\tsize = '30px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'Resource_Lifecycle_Status == &quot;Running&quot;'\n\t  value = 'thisapp.Cloud_Resource_Registry.ID.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Total count of active resources'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#FF4C2F'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#FF4C2F'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Resource_Cleanup_Logs.Wasted_Dollars_Saved.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#333333'\n    borderWidth = '0px'\n\n\t  value = 'Total Cloud Waste Saved ($)'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#FF4C2F'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#FF4C2F'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Cloud_Projects.Allocated_Project_Budget.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#333333'\n    borderWidth = '0px'\n\n\t  value = 'Total Allocated Budget ($)'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<chart \n\telementName='Department-wise Budget Allocation'\n\n\ttype = 'Pie'\n\txtitle = 'Department'\n\tytitle = 'Allocated Project Budget'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme1'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Cloud_Projects'\n\txfield = 'Department.Department_Name'\n\tyfields = 'sum:Allocated_Project_Budget'\n/>\n\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<report \n\telementName='Report'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'Idle_Resources_Report'\n\t\n\t\tiszreport = 'false'\n\t\t\t\t\tzc_AddRec = 'false'\n\t\t\t\t\tzc_EditRec = 'false'\n\t\t\t\t\tzc_DelRec = 'false'\n\t\t\t\t\tzc_DuplRec = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<report \n\telementName='Report 1'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'All_Resource_Cleanup_Logs'\n\t\n\t\tiszreport = 'false'\n\t\t\t\t\tzc_AddRec = 'false'\n\t\t\t\t\tzc_EditRec = 'false'\n\t\t\t\t\tzc_DelRec = 'false'\n\t\t\t\t\tzc_DuplRec = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<panel elementName='Cost_Savings_Trend_Stat.stat.outlined.comfortable'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = '#FFFFFF'\n\n    borderColor = '#F0F0F0'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '24px'\n\tpaddingLeft = '24px'\n\tpaddingRight = '24px'\n\tpaddingBottom = '24px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '13px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Cost Savings Trend'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#1C1C1C'\n\tsize = '30px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.Resource_Cleanup_Logs.Wasted_Dollars_Saved.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Total savings from resource cleanup'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='50%'\n   \t>\n\t<panel elementName='Resource_Utilization_Rat.stat.outlined.comfortable'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = '#FFFFFF'\n\n    borderColor = '#F0F0F0'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '24px'\n\tpaddingLeft = '24px'\n\tpaddingRight = '24px'\n\tpaddingBottom = '24px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '13px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Resource Utilization Rate'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#1C1C1C'\n\tsize = '30px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.Cloud_Resource_Registry.Idle_CPU_Utilization.avg'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Average CPU utilization across resources'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<chart \n\telementName='Chart'\n\n\t\n\ttitle = 'Resource Cost by Type'\n\t\n\ttype = 'Column'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme'\n\tlegendPos = 'right.center'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Cloud_Resource_Registry'\n\txfield = 'Resource_Type'\n\tyfields = 'sum:Hourly_Cost'\n\tshowDataLabel = 'true'\n/>\n\n</column>\n</row>\n</layout>\n</zml>"
+		}
+		page AI_Resource_Advisor
+		{
+			displayname = "AI Resource Advisor"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#FF4C2F'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#FF4C2F'\n    borderWidth = '0px'\n\n\t  value = 'AI Cloud Resource Advisor'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#333333'\n    borderWidth = '0px'\n\n\t  value = 'Get intelligent cloud resource recommendations based on workload, expected users and monthly budget.'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<button \n\t\tmargin = '0px'\n\tpaddingTop = '12px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '12px'\n\n    action = 'OpenURL'\n\t\turl = 'https://share.gemini.google/4ze08HBbFrOh' \n\t\ttarget = 'new-window'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n    borderColor = '#FFFFFF'\n    borderWidth = '0px'\n\ttext ='Ask AI'\n\t\tbgColor = 'theme'\n\t\tcornerRadius = '60px' \n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row>\n</layout>\n</zml>"
 		}
 	}
 
@@ -669,6 +674,207 @@
 		 {
 			 Deluge
 			 {
+				 string Gemini_Resource_Advisor(string userQuestion)
+                 {
+                 	question = userQuestion.toLowerCase();
+                 	// EC2 recommendations
+                 	if(question.contains("ec2") || question.contains("instance"))
+                 	{
+                 		return "CLOUD RESOURCE RECOMMENDATION\n\n" + "Recommended Resource: EC2 t3.micro\n" + "Estimated Hourly Cost: $0.0104\n" + "Estimated Monthly Cost: $7.49\n\n" + "Reason: Suitable for small applications, " + "development environments and low workloads.\n\n" + "Recommendation: Start with t3.micro and upgrade " + "when application demand increases.";
+                 	}
+                 	// Database recommendations
+                 	else if(question.contains("database") || question.contains("rds"))
+                 	{
+                 		return "CLOUD RESOURCE RECOMMENDATION\n\n" + "Recommended Resource: RDS db.r5.large\n" + "Estimated Hourly Cost: $0.2400\n" + "Estimated Monthly Cost: $172.80\n\n" + "Reason: Suitable for applications requiring " + "managed relational database services.\n\n" + "Recommendation: Monitor database utilization " + "and scale according to workload.";
+                 	}
+                 	// Storage recommendations
+                 	else if(question.contains("storage") || question.contains("s3"))
+                 	{
+                 		return "CLOUD RESOURCE RECOMMENDATION\n\n" + "Recommended Resource: S3 Standard - 50 GB\n" + "Estimated Hourly Equivalent: $0.0016\n" + "Estimated Monthly Cost: $1.15\n\n" + "Reason: Suitable for storing files, documents " + "and application data.\n\n" + "Recommendation: Use lifecycle policies to " + "manage storage costs.";
+                 	}
+                 	// Kubernetes recommendations
+                 	else if(question.contains("kubernetes") || question.contains("eks"))
+                 	{
+                 		return "CLOUD RESOURCE RECOMMENDATION\n\n" + "Recommended Resource: EKS - Small\n" + "Estimated Hourly Cost: $0.1832\n" + "Estimated Monthly Cost: $131.90\n\n" + "Reason: Suitable for small containerized " + "applications and learning environments.\n\n" + "Recommendation: Monitor cluster utilization " + "before increasing capacity.";
+                 	}
+                 	// Cost optimization recommendations
+                 	else if(question.contains("cost") || question.contains("save") || question.contains("budget"))
+                 	{
+                 		return "CLOUD COST OPTIMIZATION RECOMMENDATION\n\n" + "1. Identify resources with low CPU utilization.\n" + "2. Stop eligible idle compute resources.\n" + "3. Select instance sizes based on workload.\n" + "4. Monitor hourly resource costs.\n" + "5. Review unused cloud resources regularly.\n\n" + "Expected Benefit: Reduced unnecessary cloud " + "resource expenditure.";
+                 	}
+                 	// Default response
+                 	else
+                 	{
+                 		return "CLOUD INFRASTRUCTURE ADVISOR\n\n" + "Please ask about one of these topics:\n\n" + "1. EC2 instance recommendations\n" + "2. RDS database selection\n" + "3. S3 storage recommendations\n" + "4. Kubernetes cluster selection\n" + "5. Cloud cost optimization\n\n" + "The advisor uses predefined resource " + "recommendations and configured demonstration prices.";
+                 	}
+                 }
+				 string process_ai_query(string user_question)
+                 {
+                 	// Initialize response builder
+                 	responseText = "";
+                 	// Parse keywords from user_question
+                 	keywords = zoho.ai.extractKeywords(user_question,10);
+                 	// Flag variables for different data fetches
+                 	fetchCostData = false;
+                 	fetchUtilizationData = false;
+                 	fetchProjectData = false;
+                 	fetchDepartmentData = false;
+                 	// Check for cost/budget keywords
+                 	if(keywords.contains("cost") || keywords.contains("budget") || keywords.contains("expense") || keywords.contains("spend"))
+                 	{
+                 		fetchCostData = true;
+                 	}
+                 	// Check for utilization/idle keywords
+                 	if(keywords.contains("utilization") || keywords.contains("idle") || keywords.contains("cpu") || keywords.contains("efficiency"))
+                 	{
+                 		fetchUtilizationData = true;
+                 	}
+                 	// Check for project keywords
+                 	if(keywords.contains("project") || keywords.contains("status") || keywords.contains("lead"))
+                 	{
+                 		fetchProjectData = true;
+                 	}
+                 	// Check for department keywords
+                 	if(keywords.contains("department") || keywords.contains("team") || keywords.contains("quarterly"))
+                 	{
+                 		fetchDepartmentData = true;
+                 	}
+                 	// Fetch Cost Data if needed
+                 	if(fetchCostData)
+                 	{
+                 		// Get total hourly cost from all resources
+                 		totalHourlyCost = Cloud_Resource_Registry[ID != 0].sum(Hourly_Cost);
+                 		totalMonthlyCost = totalHourlyCost * 730;
+                 		// Approximate hours in a month
+                 		// Get total allocated budget from all projects
+                 		totalAllocatedBudget = Cloud_Projects[ID != 0].sum(Allocated_Project_Budget);
+                 		// Get budget by department
+                 		deptBudgets = Departments[ID != 0];
+                 		for each  dept in deptBudgets
+                 		{
+                 			deptName = dept.Department_Name;
+                 			deptBudget = dept.Overall_Quarterly_Budget;
+                 			// Find projects in this department
+                 			deptProjects = Cloud_Projects[Department == dept.ID];
+                 			deptProjectBudget = 0;
+                 			if(deptProjects.count() > 0)
+                 			{
+                 				deptProjectBudget = deptProjects.sum(Allocated_Project_Budget);
+                 			}
+                 			responseText = responseText + "\n" + "Department: " + deptName + " - Quarterly Budget: $" + deptBudget + ", Allocated to Projects: $" + deptProjectBudget;
+                 		}
+                 		responseText = responseText + "\n\n" + "Cost Summary:";
+                 		responseText = responseText + "\n" + "Total Estimated Monthly Resource Cost: $" + totalMonthlyCost;
+                 		responseText = responseText + "\n" + "Total Allocated Project Budget: $" + totalAllocatedBudget;
+                 		if(totalMonthlyCost > totalAllocatedBudget)
+                 		{
+                 			responseText = responseText + "\n\n⚠️ WARNING: Current resource costs exceed allocated budget!";
+                 		}
+                 		else
+                 		{
+                 			remainingBudget = totalAllocatedBudget - totalMonthlyCost;
+                 			responseText = responseText + "\n\n✅ Budget Status: Within limits. Remaining budget: $" + remainingBudget;
+                 		}
+                 	}
+                 	// Fetch Utilization Data if needed
+                 	if(fetchUtilizationData)
+                 	{
+                 		// Get idle resources
+                 		idleResources = Cloud_Resource_Registry[Resource_Lifecycle_Status == "Idle" && ID != 0];
+                 		idleCount = idleResources.count();
+                 		// Get running resources
+                 		runningResources = Cloud_Resource_Registry[Resource_Lifecycle_Status == "Running" && ID != 0];
+                 		runningCount = runningResources.count();
+                 		// Calculate average CPU utilization for running resources
+                 		avgCPU = 0;
+                 		if(runningCount > 0)
+                 		{
+                 			avgCPU = runningResources.avg(Idle_CPU_Utilization);
+                 		}
+                 		responseText = responseText + "\n\n" + "Resource Utilization Summary:";
+                 		responseText = responseText + "\n" + "Total Resources: " + (idleCount + runningCount);
+                 		responseText = responseText + "\n" + "Running Resources: " + runningCount;
+                 		responseText = responseText + "\n" + "Idle Resources: " + idleCount;
+                 		responseText = responseText + "\n" + "Average CPU Utilization (Running): " + avgCPU + "%";
+                 		if(idleCount > 0)
+                 		{
+                 			responseText = responseText + "\n\n💡 Optimization Recommendation: " + idleCount + " resources are currently idle. Consider stopping or terminating these to save costs.";
+                 			// List idle resources with their projects
+                 			for each  idleRes in idleResources
+                 			{
+                 				projectName = "Unknown";
+                 				if(idleRes.Project_Name != null)
+                 				{
+                 					projRec = Cloud_Projects[ID == idleRes.Project_Name];
+                 					if(projRec.count() > 0)
+                 					{
+                 						projectName = projRec.Project_Name;
+                 					}
+                 				}
+                 				responseText = responseText + "\n" + "  - " + idleRes.Resource_ID + " (" + idleRes.Resource_Type + ") in project: " + projectName;
+                 			}
+                 		}
+                 		if(avgCPU < 20 && runningCount > 0)
+                 		{
+                 			responseText = responseText + "\n\n💡 Optimization Recommendation: Average CPU utilization is low (" + avgCPU + "%). Consider downsizing instances to reduce costs.";
+                 		}
+                 	}
+                 	// Fetch Project Data if needed
+                 	if(fetchProjectData)
+                 	{
+                 		projects = Cloud_Projects[ID != 0];
+                 		activeProjects = Cloud_Projects[Project_Status == "Active" && ID != 0];
+                 		frozenProjects = Cloud_Projects[Project_Status == "Frozen / Overbudget" && ID != 0];
+                 		responseText = responseText + "\n\n" + "Project Overview:";
+                 		responseText = responseText + "\n" + "Total Projects: " + projects.count();
+                 		responseText = responseText + "\n" + "Active Projects: " + activeProjects.count();
+                 		responseText = responseText + "\n" + "Frozen/Overbudget Projects: " + frozenProjects.count();
+                 		if(frozenProjects.count() > 0)
+                 		{
+                 			responseText = responseText + "\n\n⚠️ Attention Required: The following projects are frozen or overbudget:";
+                 			for each  proj in frozenProjects
+                 			{
+                 				deptName = "Unknown";
+                 				if(proj.Department != null)
+                 				{
+                 					deptRec = Departments[ID == proj.Department];
+                 					if(deptRec.count() > 0)
+                 					{
+                 						deptName = deptRec.Department_Name;
+                 					}
+                 				}
+                 				responseText = responseText + "\n" + "  - " + proj.Project_Name + " (Department: " + deptName + ", Lead: " + proj.Lead_Engineer_Name + ")";
+                 			}
+                 		}
+                 	}
+                 	// Fetch Department Data if needed
+                 	if(fetchDepartmentData)
+                 	{
+                 		departments = Departments[ID != 0];
+                 		responseText = responseText + "\n\n" + "Department Details:";
+                 		for each  dept in departments
+                 		{
+                 			responseText = responseText + "\n\n" + "Department: " + dept.Department_Name;
+                 			responseText = responseText + "\n" + "  Head: " + dept.Department_Head;
+                 			responseText = responseText + "\n" + "  Email: " + dept.E_mail;
+                 			responseText = responseText + "\n" + "  Quarterly Budget: $" + dept.Overall_Quarterly_Budget;
+                 			// Count projects in this department
+                 			deptProjectCount = Cloud_Projects[Department == dept.ID].count();
+                 			responseText = responseText + "\n" + "  Active Projects: " + deptProjectCount;
+                 		}
+                 	}
+                 	// If no specific data was requested, provide a general summary
+                 	if(responseText == "")
+                 	{
+                 		responseText = "I can help analyze your cloud infrastructure. Please ask about:";
+                 		responseText = responseText + "\n" + "- Costs and budget allocation";
+                 		responseText = responseText + "\n" + "- Resource utilization and idle resources";
+                 		responseText = responseText + "\n" + "- Project status and details";
+                 		responseText = responseText + "\n" + "- Department budgets and contacts";
+                 	}
+                 	// Return the constructed response
+                 	return responseText;
+                 }
 				 void Stop_Idle_Instance(int rec_id)
                  {
                  	resRecord = Cloud_Resource_Registry[ID == rec_id];
@@ -2173,6 +2379,10 @@
 					page Cloud_Infrastructure_Executive_Dashboard
 					{
 						icon = "design-window-dev"
+					}
+					page AI_Resource_Advisor
+					{
+						icon = "education-books-46"
 					}
 				}
 			}
